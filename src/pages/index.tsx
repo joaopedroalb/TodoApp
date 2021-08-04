@@ -6,7 +6,7 @@ import {useTask } from '../contexts/TaskContext'
 
 export default function Home() {
 
-  const { taskList } = useTask();
+  const { taskList,changeStateTask,taskLeft } = useTask();
 
   return (
     <div className={styles.containerDark}>
@@ -24,8 +24,8 @@ export default function Home() {
             {
               taskList.map(item=>{
                 return (
-                  <li>
-                    <input type="checkbox" className={styles.checkAround} />
+                  <li key={item.id}>
+                    <input type="checkbox" className={styles.checkAround} onClick={()=>changeStateTask(item.id)}/>
                     <label>{item.title}</label>
                   </li>
                 )
@@ -33,7 +33,7 @@ export default function Home() {
             }
           </ul>
           <div className={styles.footerAfterList}>
-            <label>{taskList.length} items left</label>
+            <label>{taskLeft} items left</label>
             <div className={styles.filterContainer}>
               <label>All</label>
               <label>Active</label>

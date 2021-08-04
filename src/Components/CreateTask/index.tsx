@@ -5,6 +5,7 @@ import {ChangeEvent, useState} from 'react'
 import { TaskContext,useTask } from '../../contexts/TaskContext'
 
 type TaskItem ={
+  id:number,
   title:string,
   isDone:boolean
 };
@@ -14,12 +15,15 @@ type TaskItem ={
 
 
 export function CreateTask(){
-    const { addTask } = useTask();
+    const { taskList,addTask } = useTask();
     const [title,setTitle] = useState("")
 
     function handleClick(){
-      addTask({title:title,isDone:false})
-      setTitle("");
+      const idValue = taskList.length > 0 ? taskList[taskList.length-1].id+1:0;
+      if(title.length>0){
+        addTask({title:title,isDone:false,id:idValue})
+        setTitle("");
+      }
     }
 
     const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
