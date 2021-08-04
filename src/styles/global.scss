@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --bright-blue: hsl(220, 98%, 61%);
+
+    /* light mode */
+    --very-light-gray: hsl(0, 0%, 98%);
+    --very-ligh-grayisg: hsl(236, 33%, 92%);
+    --light-grayish-blue:hsl(233, 11%, 84%);
+    --dark-grayish-blue: hsl(236, 9%, 61%);
+    --very-ligth-grayish-blue: hsl(235, 19%, 35%);
+
+    /* dark mode */
+    --very-dark-blue: hsl(235, 21%, 11%);
+    --very-dark-desaturated-blue: hsl(235, 24%, 19%);
+    --light-grayish-blue: hsl(234, 39%, 85%);
+    --dark-grayish-blue: hsl(234, 11%, 52%);
+    --very-dark-grayish-blue: hsl(233, 14%, 35%);
+    --very-dark-grayish-blue-2: hsl(237, 14%, 26%);
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+}

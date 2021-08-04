@@ -1,0 +1,130 @@
+.containerDark,.containerLight{
+    width: 100%;
+    min-height: 100vh;
+}
+
+.containerDark{
+    background-color: var(--very-dark-blue);
+    color: white;
+
+    .containerHeader{
+        background-image: url("../../public/bg-desktop-dark.jpg");
+    }
+
+    .checkAround{
+        border: 1px solid var(--very-dark-grayish-blue);
+        background-color: #ffffff00;
+    }
+
+    .listContainer{
+        background: var(--very-dark-desaturated-blue);
+        label{
+            color: var(--dark-grayish-blue);
+        }
+    }
+}
+
+.containerHeader{
+    width: 100%;
+    height: 16rem;
+    background-repeat: round;
+}
+
+.containerBody{
+    margin-top: -12rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .containerHeaderInfo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20%;
+
+        h1{
+            letter-spacing: 0.75rem;
+        }
+    }
+
+    .checkAround{
+        width: 1.3em;
+        height: 1.3em;
+        border-radius: 50%;
+        vertical-align: middle;
+        -webkit-appearance: none;
+        outline: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+    
+        &:hover{
+            border: 2px solid hsl(280, 87%, 65%);
+        }
+    
+        &:checked{
+            background: linear-gradient(45deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    
+            &::before{
+                content: '✓';
+                color: white;
+            }
+        }
+    
+    }
+
+    .listContainer{
+        
+        width: 27%;
+        min-height: 2rem;
+        border-radius: .15rem;
+
+        ul{
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            padding: 0;
+
+            li{
+                list-style: none;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 0.5rem;
+                border-bottom: 1px solid #d2c5c50f;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+
+                label{
+                    font-size: .9rem;
+                }
+            }
+        }
+
+        .footerAfterList{
+            display: flex;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: .5rem;
+            padding-bottom: .5rem;
+            align-items: center;
+            justify-content: space-between;
+
+            label{
+                font-size: .65rem;
+                cursor: pointer;
+            }
+
+            .filterContainer{
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+    }
+}
