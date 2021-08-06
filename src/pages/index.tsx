@@ -1,11 +1,12 @@
-
 import styles from './Home.module.scss'
 import { CreateTask } from '../Components/CreateTask'
 
 import {useTask } from '../contexts/TaskContext'
 
-export default function Home() {
+import {useState} from 'react'
 
+export default function Home() {
+  const [filter,setFilter] = useState(0)
   const { taskList,changeStateTask,taskLeft } = useTask();
 
   return (
@@ -22,11 +23,27 @@ export default function Home() {
         <div className={styles.listContainer}>
           <ul>
             {
-              taskList.map(item=>{
+              filter==0? (taskList.map(item=>{
                 return (
-                  <li key={item.id}>
-                    <input type="checkbox" className={styles.checkAround} onClick={()=>changeStateTask(item.id)}/>
-                    <label>{item.title}</label>
+                  <li key={item.id} onClick={()=>changeStateTask(item.id)}>
+                    <input type="checkbox" className={styles.checkAround} checked={item.isDone}/>
+                    {item.isDone? (<label><s>{item.title}</s></label>):<label>{item.title}</label>}
+                  </li>
+                )
+              })):filter==1?
+              taskList.filter(item=>(!item.isDone)).map(item=>{
+                return (
+                  <li key={item.id} onClick={()=>changeStateTask(item.id)}>
+                    <input type="checkbox" className={styles.checkAround} checked={item.isDone}/>
+                    {item.isDone? (<label><s>{item.title}</s></label>):<label>{item.title}</label>}
+                  </li>
+                )
+              }):
+              taskList.filter(item=>(item.isDone)).map(item=>{
+                return (
+                  <li key={item.id} onClick={()=>changeStateTask(item.id)}>
+                    <input type="checkbox" className={styles.checkAround} checked={item.isDone}/>
+                    {item.isDone? (<label><s>{item.title}</s></label>):<label>{item.title}</label>}
                   </li>
                 )
               })
@@ -35,9 +52,9 @@ export default function Home() {
           <div className={styles.footerAfterList}>
             <label>{taskLeft} items left</label>
             <div className={styles.filterContainer}>
-              <label>All</label>
-              <label>Active</label>
-              <label>Completed</label>
+              <label onClick={()=>setFilter(0)} className={filter==0?styles.selectedFilter:""}>All</label>
+              <label onClick={()=>setFilter(1)} className={filter==1?styles.selectedFilter:""}>Active</label>
+              <label onClick={()=>setFilter(2)} className={filter==2?styles.selectedFilter:""}>Completed</label>
             </div>
             <label>Clear Completed</label>
           </div>

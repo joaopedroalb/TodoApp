@@ -89,6 +89,7 @@
             padding: 0;
 
             li{
+                cursor: pointer;
                 list-style: none;
                 display: flex;
                 flex-direction: row;
@@ -102,6 +103,8 @@
 
                 label{
                     font-size: .9rem;
+                    cursor: pointer;
+                    overflow:hidden;
                 }
             }
         }
@@ -117,13 +120,23 @@
 
             label{
                 font-size: .65rem;
-                cursor: pointer;
             }
 
             .filterContainer{
                 display: flex;
                 align-items: center;
                 gap: 1rem;
+                -webkit-user-select: none;  
+                -moz-user-select: none;     
+                -ms-user-select: none;      
+                user-select: none;  
+                
+                label{
+                    cursor: pointer;
+                }
+                .selectedFilter{
+                    color: white;
+                }
             }
         }
     }
