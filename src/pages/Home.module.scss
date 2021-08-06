@@ -81,6 +81,11 @@
         width: 27%;
         min-height: 2rem;
         border-radius: .15rem;
+        -webkit-user-select: none;  
+        -moz-user-select: none;     
+        -ms-user-select: none;      
+        user-select: none;  
+
 
         ul{
             display: flex;
@@ -126,16 +131,20 @@
                 display: flex;
                 align-items: center;
                 gap: 1rem;
-                -webkit-user-select: none;  
-                -moz-user-select: none;     
-                -ms-user-select: none;      
-                user-select: none;  
-                
                 label{
                     cursor: pointer;
                 }
                 .selectedFilter{
-                    color: white;
+                    color: var(--very-ligh-grayisg);
+                }
+            }
+
+            .clearLbl{
+                cursor: pointer;
+                transition: 0.4s;
+                &:hover{
+                    transition: 0.4s;
+                    color: var(--very-ligh-grayisg);
                 }
             }
         }

@@ -7,7 +7,7 @@ import {useState} from 'react'
 
 export default function Home() {
   const [filter,setFilter] = useState(0)
-  const { taskList,changeStateTask,taskLeft } = useTask();
+  const { taskList,changeStateTask,taskLeft,clearTaskFinished } = useTask();
 
   return (
     <div className={styles.containerDark}>
@@ -56,7 +56,7 @@ export default function Home() {
               <label onClick={()=>setFilter(1)} className={filter==1?styles.selectedFilter:""}>Active</label>
               <label onClick={()=>setFilter(2)} className={filter==2?styles.selectedFilter:""}>Completed</label>
             </div>
-            <label>Clear Completed</label>
+            <label onClick={()=>clearTaskFinished()} className={styles.clearLbl}>Clear Completed</label>
           </div>
         </div>
       </div>

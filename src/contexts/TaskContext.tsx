@@ -11,6 +11,7 @@ type TaskContextData={
     taskLeft:number;
     addTask:(task:TaskItem)=>void;
     changeStateTask:(id:number)=>void;
+    clearTaskFinished:()=>void;
 };
 
 export const TaskContext = createContext({} as TaskContextData)
@@ -30,8 +31,18 @@ export function TaskContextProvider({children}:TaskContextProviderProps) {
     }
     
     function changeStateTask(id:number){
+        console.log(id);
         taskList[id].isDone = !taskList[id].isDone;
         setTaskLeft(taskList.filter(item=>!item.isDone).length);
+    }
+
+    function clearTaskFinished(){
+        let index = 0;
+        taskList.filter(item=>!item.isDone).map(item=>{
+            item.id = index;
+            index++;
+        })
+        setTaskList(taskList.filter(item=>!item.isDone))
     }
 
     
@@ -40,7 +51,8 @@ export function TaskContextProvider({children}:TaskContextProviderProps) {
             taskList,
             taskLeft,
             addTask,
-            changeStateTask
+            changeStateTask,
+            clearTaskFinished
         }}>
         {children}
         </TaskContext.Provider>
