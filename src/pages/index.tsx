@@ -7,7 +7,7 @@ import {useState} from 'react'
 
 export default function Home() {
   const [filter,setFilter] = useState(0)
-  const { taskList,changeStateTask,taskLeft,clearTaskFinished } = useTask();
+  const { currentTaskList,changeStateTask,taskLeft,clearTaskFinished } = useTask();
 
   return (
     <div className={styles.containerDark}>
@@ -22,32 +22,14 @@ export default function Home() {
         <br /><br />
         <div className={styles.listContainer}>
           <ul>
-            {
-              filter==0? (taskList.map(item=>{
+            {(currentTaskList(filter).map(item=>{
                 return (
                   <li key={item.id} onClick={()=>changeStateTask(item.id)}>
                     <input type="checkbox" className={styles.checkAround} checked={item.isDone}/>
-                    {item.isDone? (<label><s>{item.title}</s></label>):<label>{item.title}</label>}
+                    {item.isDone? (<label className={styles.finishedTask}><s>{item.title}</s></label>):<label className={styles.notFinishedTask}>{item.title}</label>}
                   </li>
                 )
-              })):filter==1?
-              taskList.filter(item=>(!item.isDone)).map(item=>{
-                return (
-                  <li key={item.id} onClick={()=>changeStateTask(item.id)}>
-                    <input type="checkbox" className={styles.checkAround} checked={item.isDone}/>
-                    {item.isDone? (<label><s>{item.title}</s></label>):<label>{item.title}</label>}
-                  </li>
-                )
-              }):
-              taskList.filter(item=>(item.isDone)).map(item=>{
-                return (
-                  <li key={item.id} onClick={()=>changeStateTask(item.id)}>
-                    <input type="checkbox" className={styles.checkAround} checked={item.isDone}/>
-                    {item.isDone? (<label><s>{item.title}</s></label>):<label>{item.title}</label>}
-                  </li>
-                )
-              })
-            }
+              }))}
           </ul>
           <div className={styles.footerAfterList}>
             <label>{taskLeft} items left</label>

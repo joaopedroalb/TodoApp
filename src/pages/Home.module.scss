@@ -21,6 +21,12 @@
         label{
             color: var(--dark-grayish-blue);
         }
+        .finishedTask{
+            color: var(--dark-grayish-blue);
+        }
+        .notFinishedTask{
+            color: var(--light-grayish-blue);
+        }
     }
 }
 

@@ -12,6 +12,7 @@ type TaskContextData={
     addTask:(task:TaskItem)=>void;
     changeStateTask:(id:number)=>void;
     clearTaskFinished:()=>void;
+    currentTaskList:(status:number)=>TaskItem[]
 };
 
 export const TaskContext = createContext({} as TaskContextData)
@@ -45,6 +46,16 @@ export function TaskContextProvider({children}:TaskContextProviderProps) {
         setTaskList(taskList.filter(item=>!item.isDone))
     }
 
+    const currentTaskList = (status:number) =>{
+        if(status==1)
+            return taskList.filter(item=>(!item.isDone))
+
+        if(status==2)
+            return taskList.filter(item=>(item.isDone))
+
+        return taskList
+    }
+
     
     return(
         <TaskContext.Provider value={{
@@ -52,7 +63,8 @@ export function TaskContextProvider({children}:TaskContextProviderProps) {
             taskLeft,
             addTask,
             changeStateTask,
-            clearTaskFinished
+            clearTaskFinished,
+            currentTaskList
         }}>
         {children}
         </TaskContext.Provider>
