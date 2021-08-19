@@ -84,7 +84,7 @@
 
     .listContainer{
         
-        width: 27%;
+        width: 25rem;
         min-height: 2rem;
         border-radius: .15rem;
         -webkit-user-select: none;  
@@ -92,6 +92,16 @@
         -ms-user-select: none;      
         user-select: none;  
 
+        @media only screen and (max-width: 750px) {
+            width: 75%;
+            
+            .footerAfterList{
+                label{
+                    font-size: 9px !important;
+                }
+                
+            }
+        }
 
         ul{
             display: flex;
@@ -107,10 +117,7 @@
                 align-items: center;
                 gap: 0.5rem;
                 border-bottom: 1px solid #d2c5c50f;
-                padding-top: 1rem;
-                padding-bottom: 1rem;
-                padding-left: 1rem;
-                padding-right: 1rem;
+                padding: 1rem;
 
                 label{
                     font-size: .9rem;
