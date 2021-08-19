@@ -7,6 +7,7 @@ type TaskItem ={
 };
 
 type TaskContextData={
+    isDark:boolean;
     taskList: TaskItem[];
     taskLeft:number;
     addTask:(task:TaskItem)=>void;
@@ -24,6 +25,7 @@ type TaskContextProviderProps = {
 export function TaskContextProvider({children}:TaskContextProviderProps) {
     const [taskList, setTaskList] = useState<TaskItem[]>([]);
     const [taskLeft,setTaskLeft] = useState(0);
+    const [isDark,setIsDark] = useState(true);
 
     function addTask(task:TaskItem){
        setTaskList([...taskList,task])
@@ -59,6 +61,7 @@ export function TaskContextProvider({children}:TaskContextProviderProps) {
     
     return(
         <TaskContext.Provider value={{
+            isDark,
             taskList,
             taskLeft,
             addTask,
