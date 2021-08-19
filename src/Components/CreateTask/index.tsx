@@ -12,7 +12,7 @@ type TaskItem ={
 
 
 export function CreateTask(){
-    const { taskList,addTask } = useTask();
+    const { taskList,addTask,isDark } = useTask();
     const [title,setTitle] = useState("")
 
     function handleClick(){
@@ -27,7 +27,7 @@ export function CreateTask(){
       setTitle(event.currentTarget.value);
   };
     return(
-        <div className={styles.containerDark}>
+        <div className={isDark? styles.containerDark:styles.containerLigth}>
           <span onClick={()=>handleClick()} className={styles.iconContainer}><IoMdAdd/></span>
           <input type="text" className={styles.textTask} placeholder="Create a new Todo" value={title} onChange={handleOnChange}/>
         </div>

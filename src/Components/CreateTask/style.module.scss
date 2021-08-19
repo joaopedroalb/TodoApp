@@ -1,7 +1,7 @@
 .containerDark,.containerLigth{
     width: 25rem;
     height: 3rem;
-    border-radius: .1rem;
+    border-radius: .25rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -9,18 +9,27 @@
     padding: 1rem;
     gap: .25rem;
 
-    @media only screen and (max-width: 600px) {
-        width: 75%;
-    }
-}
-
-.containerDark{
-    background: var(--very-dark-desaturated-blue);
-
     .textTask{
         width: 80%;
         border: 0;
         outline: none;
+    }
+
+    @media only screen and (max-width: 600px) {
+        width: 75%;
+    }
+}
+.containerLigth{
+    background: #fff;
+    .textTask{
+        color: var(--very-dark-grayish-blue);
+        background: #f30a0a00;
+    }
+}
+.containerDark{
+    background: var(--very-dark-desaturated-blue);
+
+    .textTask{
         color: var(--very-dark-grayish-blue);
         background: #f5deb300;
     }
