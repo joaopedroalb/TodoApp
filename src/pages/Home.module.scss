@@ -3,6 +3,30 @@
     min-height: 100vh;
 }
 
+.containerLight{
+    background-color: #fff;
+    .containerHeader{
+        background-image: url("../../public/bg-desktop-light.jpg");
+    }
+
+    .checkAround{
+        border: 1px solid var(--very-dark-grayish-blue);
+        background-color: #ffffff00;
+    }
+
+    .listContainer{
+        background: var(--very-dark-desaturated-blue);
+        label{
+            color: var(--dark-grayish-blue);
+        }
+        .finishedTask{
+            color: var(--dark-grayish-blue);
+        }
+        .notFinishedTask{
+            color: var(--light-grayish-blue);
+        }
+    }
+}
 .containerDark{
     background-color: var(--very-dark-blue);
     color: white;
@@ -51,6 +75,7 @@
 
         h1{
             letter-spacing: 0.75rem;
+            color: #fff;
         }
     }
 

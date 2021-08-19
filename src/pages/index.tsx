@@ -10,17 +10,17 @@ import FooterMobile from '../Components/FooterMobile'
 
 export default function Home() {
   const [filter,setFilter] = useState(0)
-  const { currentTaskList,changeStateTask,taskLeft,clearTaskFinished } = useTask();
-  const { height, width } = useWindowDimensions();
+  const { currentTaskList,changeStateTask,isDark,changeMode } = useTask();
+  const { width } = useWindowDimensions();
 
   return (
-    <div className={styles.containerDark}>
+    <div className={isDark? styles.containerDark:styles.containerLight}>
       <div className={styles.containerHeader}></div>
       <div className={styles.containerBody}>
 
         <div className={styles.containerHeaderInfo}>
           <h1>TODO</h1>
-          <img src="icon-sun.svg" />
+          <img src={isDark?"icon-sun.svg":"icon-moon.svg"} onClick={()=>changeMode()}/>
         </div>
         <CreateTask />
         <br /><br />

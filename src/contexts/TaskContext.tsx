@@ -10,6 +10,7 @@ type TaskContextData={
     isDark:boolean;
     taskList: TaskItem[];
     taskLeft:number;
+    changeMode:()=>void;
     addTask:(task:TaskItem)=>void;
     changeStateTask:(id:number)=>void;
     clearTaskFinished:()=>void;
@@ -26,6 +27,10 @@ export function TaskContextProvider({children}:TaskContextProviderProps) {
     const [taskList, setTaskList] = useState<TaskItem[]>([]);
     const [taskLeft,setTaskLeft] = useState(0);
     const [isDark,setIsDark] = useState(true);
+
+    function changeMode(){
+        setIsDark(!isDark);
+    }
 
     function addTask(task:TaskItem){
        setTaskList([...taskList,task])
@@ -64,6 +69,7 @@ export function TaskContextProvider({children}:TaskContextProviderProps) {
             isDark,
             taskList,
             taskLeft,
+            changeMode,
             addTask,
             changeStateTask,
             clearTaskFinished,
