@@ -5,9 +5,17 @@ import {useTask } from '../../contexts/TaskContext'
 export default function FooterController(props:{filter:number,setFilter(int:number):any}){
     const {taskLeft,clearTaskFinished } = useTask();
 
+    const msgItemsLeft = (qtd:number) =>{
+        if(qtd<=0) return "All done"
+  
+        if(qtd == 1) return "1 item left"
+  
+        return qtd+" items left"
+    }
+
     return(
         <div className={styles.footerAfterList}>
-            <label>{taskLeft} items left</label>
+            <label>{msgItemsLeft(taskLeft)}</label>
             <div className={styles.filterContainer}>
                 <label onClick={()=>props.setFilter(0)} className={props.filter==0?styles.selectedFilter:""}>All</label>
                 <label onClick={()=>props.setFilter(1)} className={props.filter==1?styles.selectedFilter:""}>Active</label>
