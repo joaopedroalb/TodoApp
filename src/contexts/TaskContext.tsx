@@ -15,6 +15,7 @@ type TaskContextData={
     changeStateTask:(id:number)=>void;
     clearTaskFinished:()=>void;
     currentTaskList:(status:number)=>TaskItem[]
+    handleOnDrag:(result:any)=>void;
 };
 
 export const TaskContext = createContext({} as TaskContextData)
@@ -39,7 +40,6 @@ export function TaskContextProvider({children}:TaskContextProviderProps) {
     }
     
     function changeStateTask(id:number){
-        console.log(id);
         taskList[id].isDone = !taskList[id].isDone;
         setTaskLeft(taskList.filter(item=>!item.isDone).length);
     }
@@ -51,6 +51,23 @@ export function TaskContextProvider({children}:TaskContextProviderProps) {
             index++;
         })
         setTaskList(taskList.filter(item=>!item.isDone))
+    }
+
+    function handleOnDrag(result:any){
+        console.log("result:")
+        console.log(result);
+        if(!result.destination) return;
+        
+        const currentList = taskList;
+        const [newPosition] = currentList.splice(result.source.index,1)
+        currentList.splice(result.destination.index,0,newPosition)
+        
+        let index = 0
+        currentList.map(item=>{
+            item.id = index
+            index++
+        })
+        setTaskList(currentList);
     }
 
     const currentTaskList = (status:number) =>{
@@ -73,7 +90,8 @@ export function TaskContextProvider({children}:TaskContextProviderProps) {
             addTask,
             changeStateTask,
             clearTaskFinished,
-            currentTaskList
+            currentTaskList,
+            handleOnDrag
         }}>
         {children}
         </TaskContext.Provider>
