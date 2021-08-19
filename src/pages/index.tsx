@@ -20,7 +20,7 @@ export default function Home() {
 
         <div className={styles.containerHeaderInfo}>
           <h1>TODO</h1>
-          <img src={isDark?"icon-sun.svg":"icon-moon.svg"} onClick={()=>changeMode()}/>
+          <img src={isDark?"icon-sun.svg":"icon-moon.svg"} onClick={()=>changeMode()} className={styles.logoMode}/>
         </div>
         <CreateTask />
         <br /><br />
