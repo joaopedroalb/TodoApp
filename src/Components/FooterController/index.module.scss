@@ -1,0 +1,40 @@
+.footerAfterList{
+    display: flex;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    align-items: center;
+    justify-content: space-between;
+
+    @media only screen and (max-width: 600px) {
+        .filterContainer{
+            display: none !important;
+        }
+    }
+
+    label{
+        font-size: .65rem;
+    }
+
+    .filterContainer{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        label{
+            cursor: pointer;
+        }
+        .selectedFilter{
+            color: var(--very-ligh-grayisg);
+        }
+    }
+
+    .clearLbl{
+        cursor: pointer;
+        transition: 0.4s;
+        &:hover{
+            transition: 0.4s;
+            color: var(--very-ligh-grayisg);
+        }
+    }
+}

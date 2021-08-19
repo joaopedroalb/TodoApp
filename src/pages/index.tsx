@@ -1,9 +1,10 @@
 import styles from './Home.module.scss'
+
 import { CreateTask } from '../Components/CreateTask'
-
 import {useTask } from '../contexts/TaskContext'
-
 import {useState} from 'react'
+
+import FooterController from '../Components/FooterController'
 
 export default function Home() {
   const [filter,setFilter] = useState(0)
@@ -31,15 +32,7 @@ export default function Home() {
                 )
               }))}
           </ul>
-          <div className={styles.footerAfterList}>
-            <label>{taskLeft} items left</label>
-            <div className={styles.filterContainer}>
-              <label onClick={()=>setFilter(0)} className={filter==0?styles.selectedFilter:""}>All</label>
-              <label onClick={()=>setFilter(1)} className={filter==1?styles.selectedFilter:""}>Active</label>
-              <label onClick={()=>setFilter(2)} className={filter==2?styles.selectedFilter:""}>Completed</label>
-            </div>
-            <label onClick={()=>clearTaskFinished()} className={styles.clearLbl}>Clear Completed</label>
-          </div>
+          <FooterController filter={filter} setFilter={setFilter}/>
         </div>
       </div>
     </div>

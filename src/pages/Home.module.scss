@@ -92,15 +92,8 @@
         -ms-user-select: none;      
         user-select: none;  
 
-        @media only screen and (max-width: 750px) {
+        @media only screen and (max-width: 600px) {
             width: 75%;
-            
-            .footerAfterList{
-                label{
-                    font-size: 9px !important;
-                }
-                
-            }
         }
 
         ul{
@@ -123,41 +116,6 @@
                     font-size: .9rem;
                     cursor: pointer;
                     overflow:hidden;
-                }
-            }
-        }
-
-        .footerAfterList{
-            display: flex;
-            padding-left: 1rem;
-            padding-right: 1rem;
-            padding-top: .5rem;
-            padding-bottom: .5rem;
-            align-items: center;
-            justify-content: space-between;
-
-            label{
-                font-size: .65rem;
-            }
-
-            .filterContainer{
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-                label{
-                    cursor: pointer;
-                }
-                .selectedFilter{
-                    color: var(--very-ligh-grayisg);
-                }
-            }
-
-            .clearLbl{
-                cursor: pointer;
-                transition: 0.4s;
-                &:hover{
-                    transition: 0.4s;
-                    color: var(--very-ligh-grayisg);
                 }
             }
         }
