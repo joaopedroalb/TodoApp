@@ -1,9 +1,6 @@
 .footerAfterList{
     display: flex;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: .5rem;
-    padding-bottom: .5rem;
+    padding: 1rem;
     align-items: center;
     justify-content: space-between;
 
@@ -14,7 +11,7 @@
     }
 
     label{
-        font-size: .65rem;
+        font-size: .85rem;
     }
 
     .filterContainer{
@@ -25,7 +22,7 @@
             cursor: pointer;
         }
         .selectedFilter{
-            color: var(--very-ligh-grayisg);
+            color: var(--bright-blue);
         }
     }
 
@@ -34,7 +31,7 @@
         transition: 0.4s;
         &:hover{
             transition: 0.4s;
-            color: var(--very-ligh-grayisg);
+            color: var(--bright-blue);
         }
     }
 }

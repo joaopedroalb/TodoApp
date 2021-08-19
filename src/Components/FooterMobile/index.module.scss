@@ -1,0 +1,17 @@
+.filterContainer{
+    display: flex;
+    width: 75%;
+    justify-content: space-around;
+    margin-top: 1rem;
+    background: var(--very-dark-desaturated-blue);
+    height: 2.5rem;
+    border-radius: .35rem;
+    align-items: center;
+    color: var(--dark-grayish-blue);
+    label{
+        cursor: pointer;
+    }
+    .selectedFilter{
+        color: var(--bright-blue);
+    }
+}

@@ -37,7 +37,7 @@ export default function Home() {
           </ul>
           <FooterController filter={filter} setFilter={setFilter}/>
         </div>
-        {!width? "":width<=600? (<FooterMobile/>):""}
+        {!width? "":width<=600? (<FooterMobile filter={filter} setFilter={setFilter}/>):""}
       </div>
     </div>
   )
