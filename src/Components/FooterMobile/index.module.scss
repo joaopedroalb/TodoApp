@@ -1,17 +1,30 @@
-.filterContainer{
+.filterContainerDark,.filterContainerWhite{
     display: flex;
     width: 75%;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 14%;
     margin-top: 1rem;
-    background: var(--very-dark-desaturated-blue);
     height: 2.5rem;
     border-radius: .35rem;
     align-items: center;
-    color: var(--dark-grayish-blue);
+    
+    
     label{
         cursor: pointer;
+        font-size: 11px;
     }
     .selectedFilter{
         color: var(--bright-blue);
     }
+}
+
+.filterContainerDark{
+    background: var(--very-dark-desaturated-blue);
+    color: var(--dark-grayish-blue);
+}
+
+.filterContainerWhite{
+    background: #fff;
+    color: black;
+    border: 1px solid #8080802e;
 }
