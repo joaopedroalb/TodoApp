@@ -10,6 +10,11 @@ import FooterMobile from '../Components/FooterMobile'
 
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
+import Image from 'next/image'
+
+import sunIcon from '../../public/icon-sun.svg'
+import moonIcon from '../../public/icon-moon.svg'
+
 export default function Home() {
   const [filter,setFilter] = useState(0)
   const { currentTaskList,changeStateTask,isDark,changeMode,handleOnDrag } = useTask();
@@ -22,7 +27,7 @@ export default function Home() {
 
         <div className={styles.containerHeaderInfo}>
           <h1>TODO</h1>
-          <img src={isDark?"icon-sun.svg":"icon-moon.svg"} onClick={()=>changeMode()} className={styles.logoMode}/>
+          <Image src={isDark?sunIcon:moonIcon} onClick={()=>changeMode()} className={styles.logoMode}/>
         </div>
         <CreateTask />
         <br /><br />
